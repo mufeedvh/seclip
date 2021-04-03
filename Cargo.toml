@@ -10,7 +10,7 @@ documentation = "https://github.com/mufeedvh/seclip"
 repository = "https://github.com/mufeedvh/seclip"
 license = "MIT"
 readme = "README.md"
-exclude = [".github/*"]
+exclude = [".github/*", "screenshots/*"]
 edition = "2018"
 
 [[bin]]
