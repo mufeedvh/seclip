@@ -119,9 +119,10 @@ jobs:
         RUSTUP_TOOLCHAIN=stable cargo fetch --quiet
         RUSTUP_TOOLCHAIN=stable cargo-tree tree --all --no-dev-dependencies --no-indent ${CARGO_FEATURES_OPTION} | grep -vE "$PWD" | sort --unique
         ## setup dependencies
-        if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]
+        then
           sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
-        fi        
+        fi   
     - name: Test
       uses: actions-rs/cargo@v1
       with:
@@ -153,8 +154,8 @@ jobs:
     - name: Install/setup prerequisites
       shell: bash
       run: |
-        ## setup dependencies
-        if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]
+        then
           sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
         fi
         ## install/setup prerequisites
@@ -299,8 +300,8 @@ jobs:
         cargo-tree tree --target=${{ matrix.job.target }} ${{ matrix.job.cargo-options }} ${{ steps.vars.outputs.CARGO_FEATURES_OPTION }} --all --no-dev-dependencies --no-indent | grep -vE "$PWD" | sort --unique
     - name: Install Dependencies
       run: |
-        ## setup dependencies
-        if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        if [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]
+        then
           sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
         fi
     - name: Build
