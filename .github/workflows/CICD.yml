@@ -293,24 +293,20 @@ jobs:
         echo "## dependency list"
         cargo fetch --quiet
         cargo-tree tree --target=${{ matrix.job.target }} ${{ matrix.job.cargo-options }} ${{ steps.vars.outputs.CARGO_FEATURES_OPTION }} --all --no-dev-dependencies --no-indent | grep -vE "$PWD" | sort --unique
+    - name: Install Dependencies
+      run: |
+      ## setup dependencies
+      if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
+      fi
     - name: Build
       uses: actions-rs/cargo@v1
-      run: |
-        ## setup dependencies
-        if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-          sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
-        fi
       with:
         use-cross: ${{ steps.vars.outputs.CARGO_USE_CROSS }}
         command: build
         args: --release --target=${{ matrix.job.target }} ${{ matrix.job.cargo-options }} ${{ steps.vars.outputs.CARGO_FEATURES_OPTION }}
     - name: Test
-      uses: actions-rs/cargo@v1
-      run: |
-        ## setup dependencies
-        if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-          sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
-        fi      
+      uses: actions-rs/cargo@v1    
       with:
         use-cross: ${{ steps.vars.outputs.CARGO_USE_CROSS }}
         command: test
