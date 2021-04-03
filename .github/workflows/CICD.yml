@@ -118,6 +118,10 @@ jobs:
         CARGO_FEATURES_OPTION='' ; ## if [ -n '${{ matrix.job.features }}' ]; then CARGO_FEATURES_OPTION="--features '${{ matrix.job.features }}'"
         RUSTUP_TOOLCHAIN=stable cargo fetch --quiet
         RUSTUP_TOOLCHAIN=stable cargo-tree tree --all --no-dev-dependencies --no-indent ${CARGO_FEATURES_OPTION} | grep -vE "$PWD" | sort --unique
+        ## setup dependencies
+        if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+          sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev python3;
+        fi        
     - name: Test
       uses: actions-rs/cargo@v1
       with:
