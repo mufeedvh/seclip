@@ -7,7 +7,7 @@ A CLI utility to secretly copy secrets to your clipboard. :crab:
 [![tweet](https://img.shields.io/twitter/url/https/github.com/mufeedvh/seclip.svg?style=social)](https://twitter.com/intent/tweet?text=seclip%20-%20A%20CLI%20utility%20to%20secretly%20copy%20secrets%20to%20clipboard:&url=https%3A%2F%2Fgithub.com%2Fmufeedvh%2Fseclip)
 
 <h1 align="center">
-  <a href="https://github.com/mufeedvh/seclip"><img src="screenshots/seclip-screenshot-big.png" alt="seclip"></a>
+  <a href="https://github.com/mufeedvh/seclip"><img src="screenshots/seclip-screenshot.png" alt="seclip"></a>
 </h1>
 
 ## Table of Contents
