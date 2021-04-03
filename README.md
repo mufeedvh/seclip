@@ -29,7 +29,13 @@ A CLI utility to secretly copy secrets to your clipboard. :crab:
 
 ## Installation
 
-Download the latest binary for your OS and architecture from [Releases](https://github.com/mufeedvh/seclip/releases) OR install with `cargo`:
+On Linux you'll need the `xcb`, `xcb-render`, `xcb-shape`, and `xcb-xfixes` X11 libraries at compile time. On Ubuntu, you can install these with:
+
+```bash
+$ sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+```
+
+Download the latest binary for your OS from [Releases](https://github.com/mufeedvh/seclip/releases) OR install with `cargo`:
 
     $ cargo install seclip
 
@@ -61,10 +67,10 @@ You can also use this as a fast shortcut to copy any file contents to clipboard!
 
 ### Prerequisites
 
-On Linux you'll need the `xcb`, `xcb-render`, `xcb-shape`, and `xcb-xfixes` X11 libraries at compile time. On Ubuntu, you can install these with
+On Linux you'll need the `xcb`, `xcb-render`, `xcb-shape`, and `xcb-xfixes` X11 libraries at compile time. On Ubuntu, you can install these with:
 
 ```bash
-sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+$ sudo apt-get install libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 ```
 
 For building `seclip` from source, you need to have these tools installed
@@ -80,7 +86,7 @@ $ cd seclip/
 $ cargo build --release
 ```
 
-The first command clones the seclip repository in your local machine. The next two commands changes into the seclip directory and builds it in release mode.
+The first command clones the `seclip` repository in your local machine. The next two commands changes into the `seclip` directory and builds it in release mode.
 
 ## Contribution
 
