@@ -1,6 +1,6 @@
 # `seclip` :lock::memo:
 
-A CLI utility to secretly copy secrets to your clipboard.
+A CLI utility to secretly copy secrets to your clipboard. :crab:
 
 [![crates.io](https://img.shields.io/crates/v/seclip.svg)](https://crates.io/crates/seclip)
 [![LICENSE](https://img.shields.io/github/license/mufeedvh/seclip.svg)](https://github.com/mufeedvh/seclip/blob/master/LICENSE)
@@ -9,6 +9,7 @@ A CLI utility to secretly copy secrets to your clipboard.
 ## Table of Contents
 
 * [Features](#features)
+* [Installation](#installation)
 * [Usage](#usage)
 * [Build From Source](#build-from-source)
 * [Contribution](#contribution)
@@ -17,9 +18,16 @@ A CLI utility to secretly copy secrets to your clipboard.
 
 ## Features
 
+- **Cross-platform**.
 - Copy secret values from files. (`ssh key`, `pgp key`, `github/gitlab token`, `private keys`, etc.)
 - Copy secret values from environment variables.
 - **Self-destruct:** Automatically clear clipboard after a given timeout.
+
+## Installation
+
+Download the latest binary for your OS and architecture from [Releases](https://github.com/mufeedvh/seclip/releases) OR install with `cargo`:
+
+    $ cargo install seclip
 
 ## Usage
 
@@ -41,7 +49,9 @@ Copy a value and self-destruct the value from clipboard after a given timeout (i
 
 ## How is it useful?
 
-When working in shared environments, sharing your screen, or you're at a public place, reading the token could expose it to prying eyes, that's where `seclip` can help you. Just give the path to the private key or the environment variable, the secret value will be copied to your clipboard. In instances where you might forget that you copied a secret value, you can use the `-c` / `--clear` feature to automatically clear your clipboard in a given time.
+When working in shared environments, sharing your screen, or you're at a public place, reading secret tokens could expose it to prying eyes, that's where `seclip` can help you. Just give the path to the private key or the environment variable, the secret value will be copied to your clipboard. In instances where you might forget that you copied a secret value, you can use the `-c` / `--clear` feature to automatically clear your clipboard in a given time.
+
+You can also use this as a fast shortcut to copy any file contents to clipboard!
 
 ## Build From Source
 
