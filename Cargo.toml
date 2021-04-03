@@ -1,0 +1,35 @@
+[package]
+name = "seclip"
+version = "1.0.0"
+authors = ["Mufeed VH <mufeedvh@gmail.com>"]
+description = "A CLI utility to secretly copy secrets to clipboard."
+keywords = ["cli", "security", "privacy", "clipboard", "pgp"]
+categories = ["command-line-utilities"]
+homepage = "https://github.com/mufeedvh/seclip"
+documentation = "https://github.com/mufeedvh/seclip"
+repository = "https://github.com/mufeedvh/seclip"
+license = "MIT"
+readme = "README.md"
+exclude = [".github/*"]
+edition = "2018"
+
+[[bin]]
+name = "seclip"
+test = false
+bench = false
+
+[dependencies]
+clap = "2.33.3"
+clipboard = "0.5.0"
+colored = "2"
+
+[profile.release]
+lto = "thin"
+panic = 'abort'
+codegen-units = 1
+
+[package.metadata.deb]
+section = "utility"
+assets = [
+    ["target/release/seclip", "/usr/bin/", "755"],
+]
